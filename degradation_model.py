@@ -29,19 +29,6 @@ def fit_degradation_by_compound(data: pd.DataFrame, min_samples: int = 20) -> di
 
     Model: LapTimeSeconds ~ TyreLife + LapNumber
 
-    Why both features: LapNumber acts as a rough proxy for fuel load
-    (cars get lighter and faster as the race goes on, since fuel burns
-    off roughly linearly). Without it, fuel-driven speedup and tire-driven
-    slowdown get tangled together in a single coefficient, and TyreLife's
-    effect can look artificially flat or even negative.
-
-    With two features, model.coef_ has two values:
-      coef_[0] = effect of tyre age (holding lap number constant)
-      coef_[1] = effect of lap number / fuel burn (holding tyre age constant)
-
-    min_samples: compounds with fewer laps than this are skipped and
-    reported, since a regression on a handful of points isn't trustworthy.
-
     Returns: dict like {"SOFT": model, "MEDIUM": model, "HARD": model}
     """
     models = {}
