@@ -1,4 +1,3 @@
-# F1-Pit-Stop-Strategy
 # F1 Pit Stop Strategy Optimizer
 
 Predicts optimal F1 pit stop strategies from real telemetry, and weighs them against the odds of a safety car — not just how they'd play out in a clean race.
@@ -22,7 +21,6 @@ than just trusting the model's own output blindly.
 - scikit-learn (or statsmodels) — per-compound degradation regression
 - matplotlib — degradation curves and strategy comparison plots
 
-*(Pin exact versions in `requirements.txt`.)*
 
 ## How it works
 
